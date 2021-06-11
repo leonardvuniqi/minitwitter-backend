@@ -22,3 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/login', LoginController::class);
 Route::post('/register', RegisterController::class);
+
+Route::middleware('auth:sanctum')->group(function() {
+    Route::post('/tweet/create', \App\Http\Controllers\Tweet\Create::class);
+});
